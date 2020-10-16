@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+
+  build:
+    commands:
+      - echo "Instalando dependências..."
+      - npm install 
+
+  post_build:
+    commands:
+      - echo Build completo em `date`
+
+artifacts:
+  files:
+    - ./*
+  name: builded-application-$(date +%Y-%m-%d)
+
+cache:
+  paths:
+    - node_modules/
